@@ -1,0 +1,23 @@
+!DOCTYPE html>
+<html>
+<body>
+
+<h1>Look on console log</h1>
+
+<script type="text/javascript">
+var xhr = new XMLHttpRequest();
+xhr.open("POST", "https://chat-api.spartez-software.com/chat", true);
+xhr.withCredentials = true;
+xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+xhr.send(JSON.stringify({
+   "identity":"cookie",
+   "message":"test",
+   "serviceDeskId":"1",
+   "jiraId":"13dd7bd8-3066-3d6a-ae7b-9e93e77872dd"}));
+xhr.onload = function () {
+    console.log(xhr.responseText);
+};
+xhr.send();
+</script>
+</body>
+</html>
