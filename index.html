@@ -1,23 +1,32 @@
 <!DOCTYPE html>
 <html>
 <body>
-ffff
-<h1>Look on console log</h1>
-ff
+
+<h1>Look in console log</h1>
+
 <script type="text/javascript">
-var xhr = new XMLHttpRequest();
-xhr.open("POST", "https://chat-api.spartez-software.com/chat", true);
-xhr.withCredentials = true;
-xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-xhr.send(JSON.stringify({
-   "identity":"cookie",
-   "message":"test",
-   "serviceDeskId":"1",
-   "jiraId":"13dd7bd8-3066-3d6a-ae7b-9e93e77872dd"}));
-xhr.onload = function () {
-    console.log(xhr.responseText);
-};
-xhr.send();
+    var spartezSupportChat = {
+        portal: 1,
+        cloud: {
+            jiraId: '5dc6f451-8e9e-32eb-921a-69c00a2781ec',
+            jiraUrl: 'https://bugbounty-spartez-software-w4.atlassian.net',
+            urls: {
+                rest: 'https://chat-api.spartez-software.com',
+                ws: 'https://chat-ws.spartez-software.com'
+            },
+        }
+        //meta: [ // optional, custom metadata to store in the issue created from conversation.
+        //    { render: true, name: "Value Name 1", value: val1 }, // "render" values will be displayed in the chat dashboard
+        //    { render: false, name: "Value Name 2", value: val2 },
+        //],
+        // delay: 100, // delay between page load and chat load in milliseconds
+        // container: 'spartez-support-chat-container', // ID of the page element that will be replaced by chat
+        // iconClass: '', // additional class added to the chat icon
+        // chatClass: '', // additional class added to the chat widget
+        // locale: 'en-us' // force a specified locale for displaying texts to the user
+                           // instead of detecting it from the browser
+    }
 </script>
+<script type="text/javascript" src="https://chat-api.spartez-software.com/chat.js"></script>
 </body>
 </html>
